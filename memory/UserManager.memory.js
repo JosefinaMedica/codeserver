@@ -34,7 +34,3 @@ usuarios.create({
 
 
 console.log(usuarios.read())
-
-
-
-
