@@ -1,96 +1,98 @@
+const crypto = require("crypto");
+
 class UserManager {
   static #users = [];
-
-  async create(data) {
+  create(data) {
     try {
-      const user = this.createUserObject(data);
-      this.addToUserList(user);
-      console.log("Usuario creado correctamente");
+      const user = {
+        id: crypto.randomBytes(12).toString("hex"),
+        photo:
+          data.photo ||
+          "https://www.istockphoto.com/es/vector/vector-de-icono-de-perfil-de-usuario-avatar-o-icono-de-persona-foto-de-perfil-gm1451587807-488238421?searchscope=image%2Cfilm",
+        email: data.email,
+        password: data.password,
+        role: data.role,
+      };
+
+      if (!data.email || !data.password || !data.role) {
+        console.log("Usuario no creado. Ingrese todos los datos.");
+      } else {
+        UserManager.#users.push(user);
+        console.log("Usuario Creado.");
+      }
     } catch (error) {
-      console.error("Error al crear usuario:", error);
+      console.log(error);
+    }
+  }
+  read() {
+    try {
+      const users = UserManager.#users;
+      if (!users) {
+        throw new Error("ERROR");
+      } else {
+        return users;
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 
-  async read() {
+  readOne(id) {
     try {
-      return this.getUserList();
+      const user = UserManager.#users.find((each) => each.id === id);
+      if (!user) {
+        throw new Error("NO EXISTE EL USUARIO.");
+      } else {
+        return user;
+      }
     } catch (error) {
-      console.error("Error al leer usuarios:", error);
-      return [];
+      console.log(error);
     }
   }
 
-  async readOne(id) {
+  destroy(id) {
     try {
-      const user = this.findUserById(id);
-      if (!user) throw new Error("Usuario no encontrado");
-      return user;
+      const filtered = UserManager.#users.filter((each) => each.id !== id);
+      if (!id) {
+        throw new Error("NO EXISTEN USUARIOS CON ESE ID");
+      } else {
+        UserManager.#users = filtered;
+        console.log("USUARIO " + id + " ELIMINADO");
+      }
     } catch (error) {
-      console.error("Error al leer usuario:", error);
-      return null;
+      console.log(error);
     }
-  }
-
-  async destroy(id) {
-    try {
-      const deletedUser = this.deleteUserById(id);
-      console.log("Usuario eliminado correctamente");
-      return deletedUser;
-    } catch (error) {
-      console.error("Error al eliminar usuario:", error);
-      return null;
-    }
-  }
-
-  // Métodos auxiliares
-
-  createUserObject(data) {
-    return {
-      id: this.getNextUserId(),
-      foto: data.foto,
-      email: data.email,
-      password: data.password,
-      role: 0,
-    };
-  }
-
-  addToUserList(user) {
-    UserManager.#users.push(user);
-  }
-
-  getUserList() {
-    return UserManager.#users;
-  }
-
-  findUserById(id) {
-    return UserManager.#users.find(user => user.id === id);
-  }
-
-  deleteUserById(id) {
-    const index = UserManager.#users.findIndex(user => user.id === id);
-    if (index === -1) throw new Error("Usuario no encontrado");
-    return UserManager.#users.splice(index, 1)[0];
-  }
-
-  getNextUserId() {
-    return UserManager.#users.length === 0 ? 1 : UserManager.#users[UserManager.#users.length - 1].id + 1;
   }
 }
 
-const usuarios = new UserManager();
+const gestorDeUsuarios = new UserManager();
 
-usuarios.create({
-  foto: "bocha.jpg",
-  email: "bocha13@gmail.com",
+gestorDeUsuarios.create({
+  photo: "bocha.jpg",
+  email: "bocha1312@gmail.com",
   password: "B1234",
+  role: "user",
 });
-usuarios.create({
-  foto: "eduardo.jpg",
+
+gestorDeUsuarios.create({
+  photo: "eduardo.jpg",
   email: "eduardo@gmail.com",
   password: "E1234",
+  role: "user",
 });
 
-console.log(await usuarios.read());
-console.log(await usuarios.readOne(1));
-console.log(await usuarios.destroy(1));
-console.log(await usuarios.read());
+gestorDeUsuarios.create({
+  photo: "maria.jpg",
+  email: "maria@gmail.com",
+  password: "M1234",
+  role: "admin",
+});
+
+gestorDeUsuarios.create({
+  photo: "santi.jpg",
+  email: "santiafo@gmail.com",
+  password: "S1234",
+  role: "admin",
+});
+
+console.log(gestorDeUsuarios.read());
