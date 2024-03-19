@@ -1,0 +1,30 @@
+[
+  {
+    "id": "4cccf8034effb9a62bab7e31",
+    "photo": "bocha.jpg",
+    "email": "bocha1312@gmail.com",
+    "password": "B1234",
+    "role": "user"
+  },
+  {
+    "id": "66fb59b164ea588b038a776f",
+    "photo": "eduardo.jpg",
+    "email": "eduardo@gmail.com",
+    "password": "E1234",
+    "role": "user"
+  },
+  {
+    "id": "2666391ba98cd8e1a2d608b5",
+    "photo": "maria.jpg",
+    "email": "maria@gmail.com",
+    "password": "M1234",
+    "role": "admin"
+  },
+  {
+    "id": "60484ed91b9d51412585f7b7",
+    "photo": "santi.jpg",
+    "email": "santiafo@gmail.com",
+    "password": "S1234",
+    "role": "admin"
+  }
+]

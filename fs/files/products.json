@@ -1,0 +1,82 @@
+[
+  {
+    "id": "ff19a31a53eaeb326bd81099",
+    "title": "vela cubo",
+    "photo": "velacubo.jpg",
+    "category": "vela",
+    "price": 1500,
+    "stock": 10
+  },
+  {
+    "id": "a0317a9eaaf39acb6ef7d9c2",
+    "title": "vela vaso",
+    "photo": "velavaso.jpg",
+    "category": "vela",
+    "price": 25000,
+    "stock": 22
+  },
+  {
+    "id": "7b8c30408b6133e2e01efa58",
+    "title": "angelito",
+    "photo": "angelito.jpg",
+    "category": "rustico",
+    "price": 3000,
+    "stock": 15
+  },
+  {
+    "id": "adeecad94ebf50cbb7d37a88",
+    "title": "estrella",
+    "photo": "estrella.jpg",
+    "category": "rustico",
+    "price": 2000,
+    "stock": 10
+  },
+  {
+    "id": "e151c9192f161378d0d8368e",
+    "title": "repisero",
+    "photo": "repisero.jpg",
+    "category": "tradicional",
+    "price": 4000,
+    "stock": 25
+  },
+  {
+    "id": "47b69e341daa92a49e8da35e",
+    "title": "cuadro",
+    "photo": "cuadro.jpg",
+    "category": "cuadros",
+    "price": 5000,
+    "stock": 25
+  },
+  {
+    "id": "848c547c6402577f55b7f72c",
+    "title": "cuadro2",
+    "photo": "cuadro2.jpg",
+    "category": "cuadros",
+    "price": 5500,
+    "stock": 20
+  },
+  {
+    "id": "8a289a5b2461a91ee3014389",
+    "title": "cruzchica",
+    "photo": "cruzchica.jpg",
+    "category": "tradicional",
+    "price": 9200,
+    "stock": 10
+  },
+  {
+    "id": "a311ce1505338e95c1362c14",
+    "title": "cruz cuadrada",
+    "photo": "cruzcuadrada.jpg",
+    "category": "tradicional",
+    "price": 4500,
+    "stock": 30
+  },
+  {
+    "id": "da17506aa8434e272650d0db",
+    "title": "cunero",
+    "photo": "cunero.jpg",
+    "category": "tradicional",
+    "price": 3000,
+    "stock": 25
+  }
+]
